@@ -10,7 +10,7 @@ from torchvision import transforms, utils
 import torch.utils.data as data_utils
 import statistics
 import matplotlib.pyplot as plt
-%matplotlib inline 
+#%matplotlib inline 
 import torch.optim as optim
 
 
