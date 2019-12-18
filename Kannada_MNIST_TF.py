@@ -26,7 +26,7 @@ test_y = test_dataset.pop('label')
 train_dataset = tf.data.Dataset.from_tensor_slices((train_dataset.to_numpy(), train_y.to_numpy()))
 test_dataset = tf.data.Dataset.from_tensor_slices((test_dataset.to_numpy(), test_y.to_numpy()))
 '''
-logdir='/home/jamao/Desktop/programes/Kaggle_shared_projects/tensorboard_logs'
+logdir='tensorboard_logs'
 
 # %% [code]
 #Local paths to data files:
@@ -54,11 +54,11 @@ with graph.as_default():
         
         train = train_dataset.shuffle(10)
         train = train.batch(32)
-        train = train.prefetch(10)
+        #train = train.prefetch(10)
         
         test = test_dataset.shuffle(10)
         test = test.batch(32)
-        test = test.prefetch(10)
+        #test = test.prefetch(10)
     
         train_iter = train.make_one_shot_iterator()
         test_iter = test.make_one_shot_iterator()
@@ -83,9 +83,10 @@ with graph.as_default():
             x = tf.keras.layers.Dense(units=84, activation='relu')(x)
             y_ = tf.keras.layers.Dense(units=10, activation='softmax')(x)
     
-sess = tf.Session()
+sess = tf.Session(graph = graph)
 
 with sess:
 	sess.run(tf.global_variables_initializer())
 	result = sess.run(y_)
-	writer = tf.summary.FileWriter(logdir, graph=graph)
+
+writer = tf.summary.FileWriter(logdir, sess.graph)
