@@ -3,8 +3,11 @@ import os
 import numpy as np
 import idx2numpy
 import pandas as pd
-import tensorflow.compat.v1 as tf #version 2.0
-from tensorflow import data
+import tensorflow as tf #version 2.0
+
+
+logdir='tensorboard_logs'
+
 '''
 # %% [code]
 
@@ -26,14 +29,21 @@ test_y = test_dataset.pop('label')
 train_dataset = tf.data.Dataset.from_tensor_slices((train_dataset.to_numpy(), train_y.to_numpy()))
 test_dataset = tf.data.Dataset.from_tensor_slices((test_dataset.to_numpy(), test_y.to_numpy()))
 '''
-logdir='tensorboard_logs'
 
-# %% [code]
-#Local paths to data files:
+'''
+#Local paths to data files (Quim):
 test_X = '/home/kimxu/Documents/kaggle/Kaggle-shared_projects/FashionData/t10k-images-idx3-ubyte'
 test_y = '/home/kimxu/Documents/kaggle/Kaggle-shared_projects/FashionData/t10k-labels-idx1-ubyte'
 train_X = '/home/kimxu/Documents/kaggle/Kaggle-shared_projects/FashionData/train-images-idx3-ubyte'
 train_y = '/home/kimxu/Documents/kaggle/Kaggle-shared_projects/FashionData/train-labels-idx1-ubyte'
+'''
+
+# %% [code]
+#Local paths to data files (Eloi):
+test_X = '/home/jamao/Desktop/programes/data/FashionMNIST/t10k-images-idx3-ubyte'
+test_y = '/home/jamao/Desktop/programes/data/FashionMNIST/t10k-labels-idx1-ubyte'
+train_X = '/home/jamao/Desktop/programes/data/FashionMNIST/train-images-idx3-ubyte'
+train_y = '/home/jamao/Desktop/programes/data/FashionMNIST/train-labels-idx1-ubyte'
 
 #load data locally
 train_X = idx2numpy.convert_from_file(train_X).reshape((60000,-1))/255.
