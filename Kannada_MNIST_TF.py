@@ -89,4 +89,5 @@ with sess:
 	sess.run(tf.global_variables_initializer())
 	result = sess.run(y_)
 
-writer = tf.summary.FileWriter(logdir, sess.graph)
+print(result)
+#writer = tf.summary.FileWriter(logdir, sess.graph)
