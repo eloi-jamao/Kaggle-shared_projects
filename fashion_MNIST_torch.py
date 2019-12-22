@@ -231,3 +231,9 @@ if __name__ == '__main__':
 	plt.plot(results['te_accs'], label='eval')
 	plt.legend()
 	plt.show()
+
+  '''
+  #saving the model after training
+  logdir = '' #add path to the directory where you want to save it
+  torch.save(bignet.state_dict(), logdir)
+  '''
