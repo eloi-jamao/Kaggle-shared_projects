@@ -1,3 +1,3 @@
-# Kaggle-shared_projects
+# Shared_projects
 
 
