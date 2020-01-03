@@ -5,7 +5,7 @@ Exercise VII: For this exercise you are asked to implement a function (create_da
 object holding a dataset for image classification. This dataset should read the image and its label from a CSV file
 and apply some data augmentation to the images.
 At the end of the script you can find some code so that you can run your pipeline and check how fast is it.
-To run: `python exercise_7.py {dataset_path} {images_dir}
+To run: python exercise_7.py {dataset_path} {images_dir}
 It will print in your terminal the time cost of generating each batch. Feel free to change to accommodate your needs.
 """
 import argparse
